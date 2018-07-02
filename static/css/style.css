@@ -4,3 +4,8 @@ div.count {
     background-color: powderblue;
     border: black solid 2px;
 }
+
+b.header {
+    color: crimson;
+    font-size: 70px;
+}
