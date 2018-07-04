@@ -8,7 +8,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 </head>
 <body>
-    <b class="header">Вспомним их поименно</b>
+    <b class="header"><h1>Вспомним их поименно</h1></b>
+    <div>
+    <div class="main_button"><a href="{% url 'index' %}"><b>Поиск</b></a></div>
+    <div class="main_button"><a href="{% url 'index' %}"><b>Внесение данных</b></a></div>
+    </div>
 <div class="count"></div>
 </body>
 </html>
