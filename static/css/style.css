@@ -7,11 +7,44 @@ div.count {
 
 b.header {
     color: crimson;
-    font-size: 70px;
+    font-size: 50px;
 }
 
 div.main_button {
     border: crimson 2px solid;
     font-size: 20px;
     display: inline;
+}
+
+div.tags {
+
+    font-size: 20px;
+    display: inline;
+}
+
+div.color_border_gray {
+    margin-left: 20px;
+    border: gray 2px solid;
+}
+
+div.color_border_red {
+    margin-left: 20px;
+    border: fuchsia 2px solid;
+}
+
+p.sections_name {
+    display: inline;
+}
+
+.inner {
+     width: 50%;
+    margin: 0 auto;
+}
+
+div.footer {
+    margin: 50px 100px 100px 50px;
+}
+
+div.search_border {
+     margin: 50px 100px 100px 50px;
 }

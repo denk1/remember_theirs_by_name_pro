@@ -8,11 +8,37 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 </head>
 <body>
-    <b class="header"><h1>Вспомним их поименно</h1></b>
-    <div>
-    <div class="main_button"><a href="{% url 'index' %}"><b>Поиск</b></a></div>
-    <div class="main_button"><a href="{% url 'index' %}"><b>Внесение данных</b></a></div>
+        <b class="header" ><h1 class="inner" >Вспомним их поименно</h1></b>
+    <div class="inner">
+        <div class="search_border">
+            <div class="main_button"><a href="{% url 'index' %}"><b>Поиск</b></a></div>
+            <div class="main_button"><a href="{% url 'index' %}"><b>Внесение данных</b></a></div>
+        </div>
     </div>
+    <div class="inner" ><p class="sections_name">По разделам:</p>
+        <div class="tags color_border_red">Персональные данные</div>
+        <div class="tags color_border_gray">Призыв</div>
+        <div class="tags color_border_gray">Боевые действия</div>
+        <div class="tags color_border_gray">Госпиталь</div>
+        <div class="tags color_border_gray">Плен</div>
+        <div class="tags color_border_gray">Захоронение</div>
+    </div>
+        <div class="footer inner">
+        <p>Информация для пользователей:</p>
+        <ol>
+            <li>
+                эксперты имеют право вносить информацию на основе поисков и имеющихся в наличии документов
+            и свидетельств, отдельно по любому разделу. При этом в дальнейшем это привдедет к связи с персоналиями
+            </li>
+            <li>
+                разыскивающие своих родственников имеют возможность начать поиск по любому потвержденному этапу судьбы, либо по сопоставлению судеб земляков, однополчан
+            </li>
+        </ol>
+        <p>
+            Все действия в столь массовых и масштабных событиях имели определенную структуру и правила. Исключениями могли быть лишь отдельные судьбы
+        </p>
+        </div>
+        <div><h1>Успехов в поиске</h1></div>
 <div class="count"></div>
 </body>
 </html>
