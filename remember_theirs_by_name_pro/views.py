@@ -6,4 +6,4 @@ def index(request):
 
 
 def data_input(request):
-    return render(request, 'base.html')
+    return render(request, 'data_input.html')

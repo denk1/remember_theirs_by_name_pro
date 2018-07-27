@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="{% url 'data_input' %}">
+    Имя: <input type="text" name="name">
+    Фамилия:<input type="text" name="surname">
+    </form>
+
+{% endblock %}
