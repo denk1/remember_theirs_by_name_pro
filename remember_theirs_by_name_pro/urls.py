@@ -19,6 +19,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',  views.index, name='index'),
+    path('data_input/', views.data_input, name='data_input')
 ]
 
 
