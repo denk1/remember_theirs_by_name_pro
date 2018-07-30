@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <h1>Ввод данных</h1>
+
+       <div class="inner">
+        <div class="search_border">
+            <div class="main_button"><a href="{% url 'index' %}"><b>Поиск</b></a></div>
+           <h1>Ввод данных</h1>
+        </div>
+    </div>
 {% endblock %}
 
 {% block content %}
     <form action="{% url 'data_input' %}">
-    Имя: <input type="text" name="name">
-    Фамилия:<input type="text" name="surname">
+        <div>Имя: <input type="text" name="name"></div>
+        <div>Фамилия:<input type="text" name="surname"></div>
+        <div>Отчество:<input type="text" name="father_name"></div>
+        <div>Возможные искажения фамилии:<input type="text" name="surname_distortion"></div>
+        <div>Дата рождения:<input type="date" name="birthday"></div>
+        <div>Дата мобилизации:<input type="date" name="birthday"></div>
     </form>
-
 {% endblock %}
