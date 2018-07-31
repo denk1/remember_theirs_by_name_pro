@@ -12,11 +12,45 @@
 
 {% block content %}
     <form action="{% url 'data_input' %}">
-        <div>Имя: <input type="text" name="name"></div>
-        <div>Фамилия:<input type="text" name="surname"></div>
-        <div>Отчество:<input type="text" name="father_name"></div>
-        <div>Возможные искажения фамилии:<input type="text" name="surname_distortion"></div>
-        <div>Дата рождения:<input type="date" name="birthday"></div>
-        <div>Дата мобилизации:<input type="date" name="birthday"></div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" value="" placeholder="Имя" name="name" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" value="" placeholder="Фамилия" name="surname" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" id="date_birthday" class="form-control floating-label" placeholder="Дата рождения"  name="birthday">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" value="" placeholder="Возможные искажения фамилии" name="surname_distortion" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" id="date_mobilization" class="form-control floating-label" placeholder="Дата мобилизации"  name="date_mobilization">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" value="" placeholder="Военкомат" name="military_office_name" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" value="" placeholder="Адрес военкомата" name="military_office_adress" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" value="" placeholder="Призывная команда" name="draft_team_name" class="form-control">
+            </div>
+        </div>
     </form>
 {% endblock %}
