@@ -37,12 +37,12 @@ p.sections_name {
 }
 
 .inner {
-     width: 50%;
+    width: 50%;
     margin: 0 auto;
 }
 
-div.footer {
-    margin: 50px 100px 100px 50px;
+div.footer_main {
+    margin: 200px 200px 200px 200px;
 }
 
 div.search_border {
