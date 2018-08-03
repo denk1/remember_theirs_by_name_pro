@@ -1,58 +1,120 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}
 
-{% block title %}
-
-       <div class="inner">
-        <div class="search_border">
-            <div class="main_button"><a href="{% url 'index' %}"><b>Поиск</b></a></div>
-           <h1>Ввод данных</h1>
+<div class="inner">
+    <div class="search_border">
+        <div class="main_button">
+            <a href="{% url 'index' %}">
+                <b>Поиск</b>
+            </a>
         </div>
+        <h1>Ввод данных</h1>
     </div>
-{% endblock %}
+</div>
+{% endblock %} {% block content %}
+<div class="wizard-container">
+    <div class="card wizard-card" data-color="red" id="wizard">
+        <form action="{% url 'data_input' %}">
+            <div class="wizard-header">
+                <h3 class="wizard-title"> Book a Room </h3>
+                <h5>This information will let us know more about you.</h5>
+            </div>
+            <div class="wizard-navigation">
+                <ul>
+                    <li>
+                        <a href="#details" data-toggle="tab">Account</a>
+                    </li>
+                    <li>
+                        <a href="#captain" data-toggle="tab">Room Type</a>
+                    </li>
+                    <li>
+                        <a href="#description" data-toggle="tab">Extra Details</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane" id="details">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4 class="info-text"> Let's start with the basic details.</h4>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="Имя" name="name" class="form-control">
+                            </div>
+                        </div>
 
-{% block content %}
-    <form action="{% url 'data_input' %}">
-        
-        <div class="col-sm-4">
-            <div class="form-group">
-                <input type="text" value="" placeholder="Имя" name="name" class="form-control">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="Фамилия" name="surname" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    
-        <div class="col-sm-4">
-            <div class="form-group">
-                <input type="text" value="" placeholder="Фамилия" name="surname" class="form-control">
+            <div class="tab-pane" id="captain">
+                <h4 class="info-text">What type of room would you want? </h4>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" id="date_birthday" class="form-control floating-label" placeholder="Дата рождения" name="birthday">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="Возможные искажения фамилии" name="surname_distortion" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <input type="text" id="date_birthday" class="form-control floating-label" placeholder="Дата рождения"  name="birthday">
+            <div class="tab-pane" id="description">
+                <div class="row">
+                    <h4 class="info-text"> Drop us a small description.</h4>
+                    <div class="col-sm-6 col-sm-offset-1">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" id="date_mobilization" class="form-control floating-label" placeholder="Дата мобилизации" name="date_mobilization">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="Военкомат" name="military_office_name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="Адрес военкомата" name="military_office_adress" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="Призывная команда" name="draft_team_name" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <input type="text" value="" placeholder="Возможные искажения фамилии" name="surname_distortion" class="form-control">
+            <div class="wizard-footer">
+                <div class="pull-right">
+                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                    <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                </div>
+                <div class="pull-left">
+                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                    <div class="footer-checkbox">
+                        <div class="col-sm-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="optionsCheckboxes">
+                                </label>
+                                Subscribe to our newsletter </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <input type="text" id="date_mobilization" class="form-control floating-label" placeholder="Дата мобилизации"  name="date_mobilization">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <input type="text" value="" placeholder="Военкомат" name="military_office_name" class="form-control">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <input type="text" value="" placeholder="Адрес военкомата" name="military_office_adress" class="form-control">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <input type="text" value="" placeholder="Призывная команда" name="draft_team_name" class="form-control">
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
+</div>
 {% endblock %}
