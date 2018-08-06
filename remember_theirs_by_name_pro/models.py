@@ -20,11 +20,12 @@ class Address(models.Model):
 
 
 class Person(models.Model):
-    first_name = models.CharField(max_length=30)
-    first_name_distortion = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    last_name_distortion = models.CharField(max_length=30)
-    father_name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, default='Неизвестно')
+    name_distortion = models.CharField(max_length=30, null=True)
+    surname = models.CharField(max_length=30, default='Неизвестно')
+    surname_distortion = models.CharField(max_length=30, null=True)
+    father_name = models.CharField(max_length=30, null=True)
+    father_name_distortion = models.CharField(max_length=30, null=True)
     birthday = models.DateField(null=True)
     mobilization_id = models.ForeignKey("Mobilization", null=True, on_delete=models.SET_NULL)
     last_message_id = models.ForeignKey("LastMessage", null=True, on_delete=models.SET_NULL)

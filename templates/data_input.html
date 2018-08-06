@@ -34,80 +34,91 @@
             <div class="tab-content">
                 <div class="tab-pane" id="details">
                     <div class="row">
-                            <div class="col-sm-12">
+                        <div class="col-sm-3 col-sm-offset-2">
                             <h4 class="info-text"> Персональные данные</h4>
 
                             <div class="form-group">
                                 <input type="text" value="" placeholder="Имя" name="name" class="form-control">
-                            </div>      
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="Возможное искажение" name="name_distortion" class="form-control">
+                            </div>
                             <div class="form-group">
                                 <input type="text" value="" placeholder="Фамилия" name="surname" class="form-control">
                             </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="captain">
-                <h4 class="info-text">Введите информацию о месте начала боевого пути.</h4>
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <div class="col-sm-4">
                             <div class="form-group">
-                                <input type="text" id="date_birthday" class="form-control floating-label" placeholder="Дата рождения" name="birthday">
+                                <input type="text" value="" placeholder="Возможные искажения" name="surname_distortion" class="form-control">
                             </div>
-                        </div>
-                        <div class="col-sm-4">
                             <div class="form-group">
-                                <input type="text" value="" placeholder="Возможные искажения фамилии" name="surname_distortion" class="form-control">
+                                <input type="text" value="" placeholder="Отчество" name="father_name" class="form-control">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane" id="description">
-                <div class="row">
-                    <h4 class="info-text">Введите информацию об участии в сражениях</h4>
-                    <div class="col-sm-6 col-sm-offset-1">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" id="date_mobilization" class="form-control floating-label" placeholder="Дата мобилизации" name="date_mobilization">
+                <div class="tab-pane" id="captain">
+                    <h4 class="info-text">Введите информацию о месте начала боевого пути.</h4>
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-3"> 
+                        <!-- <div class="col-sm-10"> -->
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" id="date_birthday" class="form-control floating-label" placeholder="Дата рождения" name="birthday">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" value="" placeholder="Военкомат" name="military_office_name" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" value="" placeholder="Адрес военкомата" name="military_office_adress" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" value="" placeholder="Призывная команда" name="draft_team_name" class="form-control">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Возможные искажения фамилии" name="surname_distortion" class="form-control">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="wizard-footer">
-                <div class="pull-right">
-                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Вперед' />
-                    <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Готово' />
-                </div>
-                <div class="pull-left">
-                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Назад' />
-                    <div class="footer-checkbox">
-                        <div class="col-sm-12">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="optionsCheckboxes">
-                                </label>
-                                Subscribe to our newsletter </div>
+                <div class="tab-pane" id="description">
+                    <div class="row">
+                        <h4 class="info-text">Введите информацию об участии в сражениях</h4>
+                        <div class="col-sm-6 col-sm-offset-1">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" id="date_mobilization" class="form-control floating-label" placeholder="Дата мобилизации" name="date_mobilization">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Военкомат" name="military_office_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Адрес военкомата" name="military_office_adress" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Призывная команда" name="draft_team_name" class="form-control">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="clearfix"></div>
+                <div class="wizard-footer">
+                    <div class="pull-right">
+                        <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Вперед' />
+                        <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Готово' />
+                    </div>
+                    <div class="pull-left">
+                        <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Назад' />
+                        <div class="footer-checkbox">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="optionsCheckboxes">
+                                    </label>
+                                    Subscribe to our newsletter </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
         </form>
     </div>
