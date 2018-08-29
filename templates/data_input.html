@@ -21,10 +21,10 @@
             <div class="wizard-navigation">
                 <ul>
                     <li>
-                        <a href="#details" data-toggle="tab">Военнослужащий</a>
+                        <a href="#details" data-toggle="tab">Персональные данные</a>
                     </li>
                     <li>
-                        <a href="#captain" data-toggle="tab">Данные о призыве(мобилизация)</a>
+                        <a href="#mobilization" data-toggle="tab">Данные о призыве</a>
                     </li>
                     <li>
                         <a href="#description" data-toggle="tab">Боевые действия</a>
@@ -36,7 +36,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-4">
-                                <h4 class="info-text"> Персональные данные</h4>
+                                <h4 class="info-text"> Личные данные</h4>
                                 <div class="form-group">
                                     <input type="text" value="" placeholder="Имя" name="name" class="form-control">
                                 </div>
@@ -106,17 +106,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="captain">
-                    <h4 class="info-text">Введите информацию о месте начала боевого пути.</h4>
-                    <div class="row">
-                        <div class="col-sm-10 col-sm-offset-3">
-                            <!-- <div class="col-sm-10"> -->
-                            <div class="col-sm-4">
-
-                            </div>
-                            <div class="col-sm-4">
+                <div class="tab-pane" id="mobilization">
+                    <div class="container">
+                        <div class="row">
+                            <h4 class="info-text">Мобилизация</h4>
+                            <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Возможные искажения фамилии" name="surname_distortion" class="form-control">
+                                    <label>Дата:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" id="date_mobilization" class="form-control floating-label" placeholder="Дата рождения" name="birthday">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Дата:</label>
+                                </div>
+                                    </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                        <input type="text" value="" placeholder="Область" name="name_distric" class="form-control">
                                 </div>
                             </div>
                         </div>
