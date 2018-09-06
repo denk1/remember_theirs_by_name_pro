@@ -3,12 +3,12 @@ from django.db import models
 
 class Locality(models.Model):
     district_id = models.ForeignKey('District', on_delete=models.CASCADE)
-    name_locality = models.CharField(max_length=90)
+    locality_name = models.CharField(max_length=90)
 
 
 class District(models.Model):
     region_id = models.ForeignKey('Region', on_delete=models.CASCADE)
-    name_district = models.CharField(max_length=90)
+    district_name = models.CharField(max_length=90)
 
 
 class Region(models.Model):
@@ -48,8 +48,7 @@ class WarUnit(models.Model):
 
 class DraftTeam(models.Model):
     team_number = models.CharField(max_length=10)
-    address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
-
+    name = models.CharField(max_length=30, null=True)
 
 class MilitaryEnlistmentOffice(models.Model):
     address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
