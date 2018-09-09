@@ -32,6 +32,9 @@
                     <li>
                         <a href="#hospital" data-toggle="tab">Госпиталь</a>
                     </li>
+                    <li>
+                        <a href="#captivity" data-toggle="tab">Плен(принудительные работы)</a>
+                    </li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -206,7 +209,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Населенный пункт" name="msg_locality_name" class="form-control">
+                                    <input type="text" value="" placeholder="Населенный пункт" name="msg_locality_name"
+                                        class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -216,14 +220,16 @@
                         <div class="row">
                             <div class="col-sm-offset-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="**Дополнительная информация" name="adding_info" class="form-control">
+                                    <input type="text" value="" placeholder="**Дополнительная информация" name="adding_info"
+                                        class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="row top-buffer">
 
                         </div>
-                        <p>**При наличие информации о переводе в другие подразделения, заполнять в порядке последовательности</p>
+                        <p>**При наличие информации о переводе в другие подразделения, заполнять в порядке
+                            последовательности</p>
                     </div>
                 </div>
                 <div class="tab-pane" id="fighting">
@@ -243,10 +249,10 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" id="fighting_to" class="form-control floating-label"
-                                        placeholder="по" name="fighting_to">
+                                    <input type="text" id="fighting_to" class="form-control floating-label" placeholder="по"
+                                        name="fighting_to">
                                 </div>
-                            </div>                           
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-2">
@@ -295,14 +301,16 @@
                         <div class="row">
                             <div class="col-sm-offset-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="**Дополнительная информация" name="battle_adding_info" class="form-control">
+                                    <input type="text" value="" placeholder="**Дополнительная информация" name="battle_adding_info"
+                                        class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="row top-buffer">
 
                         </div>
-                        <p>**При наличие информации о переводе в другие подразделения, заполнять в порядке последовательности</p>
+                        <p>**При наличие информации о переводе в другие подразделения, заполнять в порядке
+                            последовательности</p>
                     </div>
                 </div>
                 <div class="tab-pane" id="hospital">
@@ -322,7 +330,94 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <input type="text" id="hospitalization_to" class="form-control floating-label"
-                                            placeholder="по" name="fighting_to">
+                                        placeholder="по" name="fighting_to">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Наименование лечебного учреждения:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="" name="hospital_name" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Место расположения:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Область" name="hospital_region_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Район" name="hospital_distric_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Населенный пункт" name="hospital_locality_name"
+                                        class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>В составе:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Армия" name="hospital_army_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Дивизия" name="hospital_division_name"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Полк" name="hospital_regiment_name" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>По окончанию лечения направлен в:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="" name="healthy_direction" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="captivity">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Дата пленения:</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <input type="text" id="date_of_captivity" class="form-control floating-label"
+                                        placeholder="Дата рождения" name="date_of_captivity">
                                 </div>
                             </div>
                         </div>
