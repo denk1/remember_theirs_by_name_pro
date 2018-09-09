@@ -27,7 +27,10 @@
                         <a href="#mobilization" data-toggle="tab">Данные о призыве</a>
                     </li>
                     <li>
-                        <a href="#description" data-toggle="tab">Боевые действия</a>
+                        <a href="#fighting" data-toggle="tab">Боевые действия</a>
+                    </li>
+                    <li>
+                        <a href="#hospital" data-toggle="tab">Госпиталь</a>
                     </li>
                 </ul>
             </div>
@@ -41,22 +44,26 @@
                                     <input type="text" value="" placeholder="Имя" name="name" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Возможное искажение" name="name_distortion" class="form-control">
+                                    <input type="text" value="" placeholder="Возможное искажение" name="name_distortion"
+                                        class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" value="" placeholder="Фамилия" name="surname" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Возможное искажение" name="surname_distortion" class="form-control">
+                                    <input type="text" value="" placeholder="Возможное искажение" name="surname_distortion"
+                                        class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" value="" placeholder="Отчество" name="father_name" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Возможное искажение" name="father_name_distortion" class="form-control">
+                                    <input type="text" value="" placeholder="Возможное искажение" name="father_name_distortion"
+                                        class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="date_birthday" class="form-control floating-label" placeholder="Дата рождения" name="birthday">
+                                    <input type="text" id="date_birthday" class="form-control floating-label"
+                                        placeholder="Дата рождения" name="birthday">
                                 </div>
                             </div>
                         </div>
@@ -78,7 +85,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Населенный пункт" name="locality_name" class="form-control">
+                                    <input type="text" value="" placeholder="Населенный пункт" name="locality_name"
+                                        class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -100,7 +108,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Населенный пункт" name="locality_name" class="form-control">
+                                    <input type="text" value="" placeholder="Населенный пункт" name="locality_name"
+                                        class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -117,7 +126,8 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <input type="text" id="date_mobilization" class="form-control floating-label" placeholder="Дата рождения" name="birthday">
+                                    <input type="text" id="date_mobilization" class="form-control floating-label"
+                                        placeholder="Дата рождения" name="birthday">
                                 </div>
                             </div>
                         </div>
@@ -139,7 +149,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Название призывного пунка" name="military_enlishment_name" class="form-control">
+                                    <input type="text" value="" placeholder="Название призывного пунка" name="military_enlishment_name"
+                                        class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -161,34 +172,159 @@
                                     <label>Направлен:</label>
                                 </div>
                             </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Фронт" name="front_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Армия" name="army_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Подразделение" name="warunit_name" class="form-control">
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Последнее письменное сообщение из:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Область" name="msg_region_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Район" name="msg_distric_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Населенный пункт" name="msg_locality_name" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-buffer">
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-offset-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="**Дополнительная информация" name="adding_info" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-buffer">
+
+                        </div>
+                        <p>**При наличие информации о переводе в другие подразделения, заполнять в порядке последовательности</p>
                     </div>
                 </div>
-                <div class="tab-pane" id="description">
+                <div class="tab-pane" id="fighting">
                     <div class="container">
                         <div class="row">
                             <h4 class="info-text">Введите информацию об участии в сражениях</h4>
-                            <div class="col-sm-3">
+                            <div class="col-sm-1">
                                 <div class="form-group">
-                                    <input type="text" id="date_mobilization" class="form-control floating-label" placeholder="Дата мобилизации" name="date_mobilization">
+                                    <label>Период: </label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Военкомат" name="military_office_name" class="form-control">
+                                    <input type="text" id="fighting_since" class="form-control floating-label"
+                                        placeholder="с" name="fighting_since">
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Адрес военкомата" name="military_office_adress" class="form-control">
+                                    <input type="text" id="fighting_to" class="form-control floating-label"
+                                        placeholder="по" name="fighting_to">
                                 </div>
-                            </div>
-                            <div class="col-sm-3">
+                            </div>                           
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Призывная команда" name="draft_team_name" class="form-control">
+                                    <label>В составе:</label>
                                 </div>
                             </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Армия" name="army_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Дивизия" name="division_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Полк" name="regiment_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Рота" name="company_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Взвод" name="platoon_name" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label>Название боевой операции:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="" name="military_operation_name" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-offset-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="**Дополнительная информация" name="battle_adding_info" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-buffer">
 
+                        </div>
+                        <p>**При наличие информации о переводе в другие подразделения, заполнять в порядке последовательности</p>
+                    </div>
+                </div>
+                <div class="tab-pane" id="hospital">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Период:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" id="hospitalization_since" class="form-control floating-label"
+                                        placeholder="с" name="fighting_since">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" id="hospitalization_to" class="form-control floating-label"
+                                            placeholder="по" name="fighting_to">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

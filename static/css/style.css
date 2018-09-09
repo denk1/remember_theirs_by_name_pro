@@ -48,3 +48,7 @@ div.footer_main {
 div.search_border {
      margin: 50px 100px 100px 50px;
 }
+
+.top-buffer { 
+    margin-top:80px; 
+}
