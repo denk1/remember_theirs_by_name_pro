@@ -2,16 +2,25 @@ from django.db import models
 
 
 class Locality(models.Model):
+    """
+    Населенный пункт
+    """
     district_id = models.ForeignKey('District', on_delete=models.CASCADE)
     locality_name = models.CharField(max_length=90)
 
 
 class District(models.Model):
+    """
+    Район 
+    """
     region_id = models.ForeignKey('Region', on_delete=models.CASCADE)
     district_name = models.CharField(max_length=90)
 
 
 class Region(models.Model):
+    """
+    Область
+    """
     region_name = models.CharField(max_length=90)
 
 
