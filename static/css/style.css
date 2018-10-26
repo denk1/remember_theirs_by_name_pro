@@ -52,3 +52,12 @@ div.search_border {
 .top-buffer { 
     margin-top:80px; 
 }
+
+.red1 {
+    color: red;
+}
+
+.border_red_mark {
+    margin: 2px;
+    border: red 2px solid;
+}
