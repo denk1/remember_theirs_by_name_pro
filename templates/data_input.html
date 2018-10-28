@@ -35,6 +35,9 @@
                     <li>
                         <a href="#captivity" data-toggle="tab">Плен(принудительные работы)</a>
                     </li>
+                    <li>
+                        <a href="#burial" data-toggle="tab">Захоронение(Перезахоронение)</a>
+                    </li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -316,6 +319,7 @@
                 <div class="tab-pane" id="hospital">
                     <div class="container">
                         <div class="row">
+                            <h4 class="info-text">Информация о нахождении в лечебных учреждениях </h4>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Период:</label>
@@ -409,6 +413,7 @@
                 <div class="tab-pane" id="captivity">
                     <div class="container">
                         <div class="row">
+                            <h4 class="info-text">Данные о пленении и дальнейшем содержании</h4>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Дата пленения:*</label>
@@ -583,7 +588,7 @@
                                         <label>
                                             <input type="checkbox" name="specialMark">
                                         </label>
-                                        <forn class="red1">Освобожден</forn>
+                                        <font class="red1">Освобожден</font>
                                     </div>
                                 </div>
                             </div>
@@ -601,6 +606,75 @@
                         </div>
                         <p>**При наличие информации о переводе в другие пункты, заводить в порядке
                             последовательности</p>
+                    </div>
+                </div>
+                <div class="tab-pane" id="burial">
+                    <div class="container">
+                        <div class="row">
+                            <h4 class="info-text">Имеющиеся данные о захоронении</h4>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Дата:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" id="date_of_burial" class="form-control floating-label" placeholder=""
+                                        name="date_of_burial">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Место захоронения по документам:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Область" name="burial_region_doc" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Район" name="burial_distric_doc" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Населенный пункт" name="burial_locality_doc"
+                                        class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Фактическое расположение*:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Область" name="burial_region_act" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Район" name="burial_distric_act" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Населенный пункт" name="burial_locality_act"
+                                        class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h5 class="info-text">Описание захоронения</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="wizard-footer">
