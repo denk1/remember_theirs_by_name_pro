@@ -10,6 +10,63 @@
         <h1>Ввод данных</h1>
     </div>
 </div>
+<script>
+    var num = 1;
+    
+
+    var registerEventButton = function() {
+    var fighting_minus = document.getElementById('fighting_minus'),
+        fighting_plus  = document.getElementById('fighting_plus'),
+        fights = document.getElementById('fights_list');
+
+
+
+    function delFormItem() {
+         var fighting_container_list = document.querySelectorAll("#fighting_container");
+         if((fighting_container_list.length - 1) > 0) {
+            num = fighting_container_list.length - 1
+            var fighting_container_del = fighting_container_list[num];
+            fights.removeChild(fighting_container_del);
+        }
+    };
+
+    function addFormItem() {
+        var inition_button_id = this.getAttribute('id').split('_')[0];
+        var fighting_container_list = document.querySelectorAll('#' + inition_button_id + '_container');
+        var fighting_item = fighting_container_list[0];
+        var fighting_since = fighting_item.querySelectorAll('#' + inition_button_id + '_since');
+        var fighting_to = fighting_item.querySelectorAll('#' + inition_button_id + '_to');
+        var attributeValueSince = fighting_since[0].getAttribute('id') + '_' + (num).toString();
+        var attributeValueTo = fighting_to[0].getAttribute('id') + '_' + (num++).toString();
+        var fighting_item_new = fighting_item.cloneNode(true);
+        var fighting_since_new = fighting_item_new.querySelectorAll('#' + inition_button_id + '_since');
+        var fighting_to_new = fighting_item_new.querySelectorAll('#' + inition_button_id + '_to');
+        fighting_since_new[0].setAttribute('id', attributeValueSince);
+        fighting_to_new[0].setAttribute('id', attributeValueTo);
+        fights.appendChild(fighting_item_new);
+        
+        $('#' + attributeValueSince).bootstrapMaterialDatePicker
+        ({
+            time: false,
+            clearButton: true,
+            lang: 'ru'
+        });
+
+        $('#' + attributeValueTo).bootstrapMaterialDatePicker
+        ({
+            time: false,
+            clearButton: true,
+            lang: 'ru'
+        });
+
+    };
+
+        fighting_minus.onclick = delFormItem;
+    
+        fighting_plus.onclick = addFormItem;
+    };
+    addEventListener('load', registerEventButton);
+</script>
 {% endblock %} {% block content %}
 <div class="wizard-container">
     <div class="card wizard-card" data-color="red" id="wizard">
@@ -27,7 +84,7 @@
                         <a href="#mobilization" data-toggle="tab">Данные о призыве</a>
                     </li>
                     <li>
-                        <a href="#fighting" data-toggle="tab">Боевые действия</a>
+                        <a href="#fights" data-toggle="tab">Боевые действия</a>
                     </li>
                     <li>
                         <a href="#hospital" data-toggle="tab">Госпиталь</a>
@@ -235,10 +292,12 @@
                             последовательности</p>
                     </div>
                 </div>
-                <div class="tab-pane" id="fighting">
-                    <div class="container">
+                <div class="tab-pane" id="fights">
+                    <h4 class="info-text">Введите информацию об участии в сражениях</h4>
+                    <div id="fights_list">
+                    <div id="fighting_container" class="container">
                         <div class="row">
-                            <h4 class="info-text">Введите информацию об участии в сражениях</h4>
+                            
                             <div class="col-sm-1">
                                 <div class="form-group">
                                     <label>Период: </label>
@@ -247,13 +306,13 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <input type="text" id="fighting_since" class="form-control floating-label"
-                                        placeholder="с" name="fighting_since">
+                                        placeholder="с" name="fighting_since[]">
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <input type="text" id="fighting_to" class="form-control floating-label" placeholder="по"
-                                        name="fighting_to">
+                                        name="fighting_to[]">
                                 </div>
                             </div>
                         </div>
@@ -265,27 +324,27 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Армия" name="army_name" class="form-control">
+                                    <input type="text" value="" placeholder="Армия" name="army_name[]" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Дивизия" name="division_name" class="form-control">
+                                    <input type="text" value="" placeholder="Дивизия" name="division_name[]" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Полк" name="regiment_name" class="form-control">
+                                    <input type="text" value="" placeholder="Полк" name="regiment_name[]" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Рота" name="company_name" class="form-control">
+                                    <input type="text" value="" placeholder="Рота" name="company_name[]" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Взвод" name="platoon_name" class="form-control">
+                                    <input type="text" value="" placeholder="Взвод" name="platoon_name[]" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -297,14 +356,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="" name="military_operation_name" class="form-control">
+                                    <input type="text" value="" placeholder="" name="military_operation_name[]" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-offset-3">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="**Дополнительная информация" name="battle_adding_info"
+                                    <input type="text" value="" placeholder="**Дополнительная информация" name="battle_adding_info[]"
                                         class="form-control">
                                 </div>
                             </div>
@@ -312,9 +371,13 @@
                         <div class="row top-buffer">
 
                         </div>
-                        <p>**При наличие информации о переводе в другие подразделения, заполнять в порядке
-                            последовательности</p>
+                    </div> 
+                    </div>                  
+                    <div class="button_plus_minus">
+                    <p class="add_item plus" id="fighting_plus">&#43;</p><p class="add_item minus" id="fighting_minus">&#8722;</p>                   
                     </div>
+                     <p>**При наличие информации о переводе в другие подразделения, заполнять в порядке
+                            последовательности</p>
                 </div>
                 <div class="tab-pane" id="hospital">
                     <div class="container">
