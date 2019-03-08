@@ -43,7 +43,52 @@
     <!-- CSS Files -->
     
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script>
+    function delFormItem() {
+        var inition_button_id = this.getAttribute('id').split('_')[0];
+        var formItems = document.getElementById(inition_button_id + 's_list');
+        var container_list = document.querySelectorAll('#' + inition_button_id + '_container');
+        if((container_list.length - 1) > 0) {
+            num = container_list.length - 1
+            var container_del = container_list[num];
+            formItems.removeChild(container_del);
+        }
+    };
 
+    function addFormItem() {
+        var inition_button_id = this.getAttribute('id').split('_')[0];
+        var formItems = document.getElementById(inition_button_id + 's_list');
+        var container_list = document.querySelectorAll('#' + inition_button_id + '_container');
+        var item = container_list[0];
+        console.log(item);
+        var since = item.querySelectorAll('#' + inition_button_id + '_since');
+        var to = item.querySelectorAll('#' + inition_button_id + '_to');
+        var attributeValueSince = since[0].getAttribute('id') + '_' + (num).toString();
+        var attributeValueTo = to[0].getAttribute('id') + '_' + (num++).toString();
+        var item_new = item.cloneNode(true);
+        var since_new = item_new.querySelectorAll('#' + inition_button_id + '_since');
+        var to_new = item_new.querySelectorAll('#' + inition_button_id + '_to');
+        since_new[0].setAttribute('id', attributeValueSince);
+        to_new[0].setAttribute('id', attributeValueTo);
+        formItems.appendChild(item_new);
+        
+        $('#' + attributeValueSince).bootstrapMaterialDatePicker
+        ({
+            time: false,
+            clearButton: true,
+            lang: 'ru'
+        });
+
+        $('#' + attributeValueTo).bootstrapMaterialDatePicker
+        ({
+            time: false,
+            clearButton: true,
+            lang: 'ru'
+        });
+
+    };
+
+    </script>
 </head>
 
 <body>
