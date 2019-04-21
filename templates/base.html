@@ -93,11 +93,18 @@
 
 <body>
         <b class="header" ><h1 class="inner" >Вспомним их поименно</h1></b>
+        {% if user.is_authenticated %}
+            <li>User: {{ user.get_username }}</li>
+            <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+        {% else %}
+            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+        {% endif %} 
         {%  block title %}
+        
         {% endblock %}
-
-         <div>
+         
         {% block content %}
+       
         {% endblock %}
          </div>
          <div class="footer_main inner">
@@ -160,7 +167,7 @@
 
     $(document).ready(function()
     {
-        $('#hospitalization_since').bootstrapMaterialDatePicker
+        $('#hospital_since').bootstrapMaterialDatePicker
         ({
             time: false,
             clearButton: true,
@@ -170,7 +177,7 @@
 
     $(document).ready(function()
     {
-        $('#hospitalization_to').bootstrapMaterialDatePicker
+        $('#hospital_to').bootstrapMaterialDatePicker
         ({
             time: false,
             clearButton: true,
