@@ -5,16 +5,16 @@ class Locality(models.Model):
     """
     Населенный пункт
     """
-    district = models.ForeignKey('District', on_delete=models.CASCADE)
-    locality_name = models.CharField(max_length=90)
+    up_place = models.ForeignKey('District', on_delete=models.CASCADE)
+    name = models.CharField(max_length=90)
 
 
 class District(models.Model):
     """
     Район 
     """
-    region = models.ForeignKey('Region', on_delete=models.CASCADE)
-    district_name = models.CharField(max_length=90)
+    up_place = models.ForeignKey('Region', on_delete=models.CASCADE)
+    name = models.CharField(max_length=90)
 
 
 class Region(models.Model):

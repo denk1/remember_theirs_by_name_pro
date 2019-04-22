@@ -8,6 +8,8 @@ from remember_theirs_by_name_pro.models import Person, \
                                                WarUnit, \
                                                WarServe
 
+address_data = [Region, District, Locality]
+
 def fill_new_line(post_obj):
     surname = post_obj.get("surname")
     surname_distortion = post_obj.get("surname_distortion")
@@ -21,10 +23,12 @@ def fill_new_line(post_obj):
     born_district_name = post_obj.get("born_district_name")
     born_locality_name = post_obj.get("born_locality_name")
     born_address = [born_region_name, born_district_name, born_locality_name]
+    
     live_region_name = post_obj.get("live_region_name")
     live_district_name = post_obj.get("live_district_name")
     live_locality_name = post_obj.get("live_locality_name")
     live_address = [live_region_name, live_district_name, live_locality_name]
+    
     region_military_enlistment_office = post_obj.get("region_region_military_enlistment_office")
     region_military_enlistment_office = Region.objects.create(region_name=region_military_enlistment_office)
     district_military_enlistment_office = post_obj.get("district_military_enlistment_office")
@@ -67,15 +71,22 @@ def find_address(places, place_name):
         return None
 
 
-def fill_address(locality, district, region):
-    
+def fill_address(address):
+    is_new = False
+    addr_prev = None
+    addr = None
+    for i in range(3):
+        addr = find_address(address_data[i], address[i])
+        if addr is None or is_new is True:
+            if i == 0:
+                address_data[i].objects.create(region_name = address[i])
+            else:
+                address_data[i].objects.create(up_place=addr_prev, name=address)
+            is_new = True
 
-    
-    districts = District.objects.filter(district_name=district)
-    if districts.count() > 0:
+        addr_prev = addr
+    return addr            
 
-    districts = District.objects.filter(district_name__iexact=district)
-    localities = Locality.objects.filter(locality_name__iexact=locality)
 
 
 
