@@ -61,22 +61,3 @@ div.search_border {
     margin: 2px;
     border: red 2px solid;
 }
-
-.add_item {
-    font-size: 32pt;
-}
-
-.plus {
-    float: left;
-}
-
-.minus {
-    float: right;
-
-}
-
-.button_plus_minus {
-    margin: auto;
-    height: 40pt;
-    width: 50pt;
-}
