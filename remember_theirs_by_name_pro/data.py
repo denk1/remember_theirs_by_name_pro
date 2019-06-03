@@ -47,9 +47,16 @@ def fill_war_unit(war_units):
     count_item = len(war_units)
     for unit_name in war_units:
         unit = find_record(WarUnit, {'name__iexact' : unit_name})
+        if unit is None:
+            WarUnit.objects
         
         
-    
+def find_record(war_units, d_name):
+    war_units = war_units.objects.filters(d_name)
+    if war_units.count() > 0:
+        return war_units[0]
+    elif:
+        return None
 
 
 def fill_new_line(post_obj):
@@ -84,7 +91,7 @@ def fill_new_line(post_obj):
     front_name = post_obj.get("front_name")
     army_name = post_obj.get("army_name")
     warunit_name = post_obj.get("warunit_name")
-    war_unit = [front_name, army_name, warunit_name]
+    war_units = [front_name, army_name, warunit_name]
     warunit = None
     if warunits.count() > 0:
         warunit = warunits[0]
