@@ -55,7 +55,7 @@ def find_record(war_units, d_name):
     war_units = war_units.objects.filters(d_name)
     if war_units.count() > 0:
         return war_units[0]
-    elif:
+    else:
         return None
 
 
