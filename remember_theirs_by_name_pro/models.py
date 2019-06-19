@@ -46,7 +46,6 @@ class CallingTeam(models.Model):
     Призывная команда
     """
     name = models.CharField(max_length=30, null=True)
-    directions = models.ManyToManyField("WarUnit", through="CallingTeamDirection")
 
 
 class CallingTeamDirection(models.Model):
@@ -61,20 +60,11 @@ class MilitaryEnlistmentOffice(models.Model):
     address = models.ForeignKey(District, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     mobilizations = models.ManyToManyField("Mobilization", through="Call")
-    calling_teams = models.ManyToManyField(CallingTeam, through="MilitaryEnlistmentOfficeCallingTeam")
-
-
-class MilitaryEnlistmentOfficeCallingTeam(models.Model):
-    military_enlistment_officies = models.ForeignKey(MilitaryEnlistmentOffice, on_delete=models.CASCADE)
-    calling_team = models.ForeignKey(CallingTeam, on_delete=models.CASCADE)
 
 
 class Mobilization(models.Model):
     date_mobilization = models.DateField()
-    directed_war_unit = models.ForeignKey(WarUnit, on_delete=models.CASCADE)
-    last_message_from_locality = models.ForeignKey(Locality, null=True, on_delete=models.SET_NULL)
     military_enlistment_officies = models.ManyToManyField("MilitaryEnlistmentOffice", through="Call")
-    
 
 
 class Call(models.Model):
@@ -100,7 +90,8 @@ class Hospitalization(models.Model):
 class WarOperation(models.Model):
     name = models.CharField(max_length=256)
     participants = models.ManyToManyField(WarServe, through="WarArchievement")
-    adding_info = models.CharField(max_length=256, null=True)
+    def __str__(self):
+        return self.name
 
 
 class WarArchievement(models.Model):
@@ -108,7 +99,7 @@ class WarArchievement(models.Model):
     war_serve = models.ForeignKey(WarServe, on_delete=models.CASCADE)
     period_from = models.DateField(null=False)
     period_to = models.DateField(null=False)
-
+    
 
 
 class Person(models.Model):
@@ -126,4 +117,4 @@ class Person(models.Model):
     live_locality = models.ForeignKey(Locality, related_name='live', on_delete=models.CASCADE)
     call = models.ForeignKey(Call, on_delete=models.CASCADE)
     def __str__(self):
-        return self.name
+        return self.name + ' ' + self.surname + ' ' + self.father_name
