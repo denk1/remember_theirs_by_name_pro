@@ -8,6 +8,16 @@ from remember_theirs_by_name_pro.models import Person, \
                                                WarUnit, \
                                                WarServe
 
+from enum import Enum
+
+class WarUnitType(Enum):
+    FRONT = 1
+    ARMY = 2
+    DIVISION = 3
+    RGT = 4
+    COY = 5
+    UNIT = 6
+
 address_data = [Region, District, Locality]
 
 
@@ -19,35 +29,58 @@ def find_address(places, place_name):
         return None
 
 
-def fill_address(address):
+def fill_address(address, is_for_militaty_enlistment_office):
     is_new = False
     addr_prev = None
     addr = None
-    for i in range(3):
+    r = 3
+    if is_for_militaty_enlistment_office:
+        r = 2
+    for i in range(r):
         addr = find_address(address_data[i], address[i])
         if addr is None or is_new is True:
             if i == 0:
-                region = address_data[i].objects.create(region_name = address[i])
-                region.save()
+                addr = address_data[i].objects.create(region_name = address[i])
             else:
-                sub_region = address_data[i].objects.create(up_place=addr_prev, name=address)
-                sub_region.save()
-
+                addr = address_data[i].objects.create(up_place=addr_prev, name=address)
+            addr.save()    
             is_new = True
 
         addr_prev = addr
     return addr
 
 
-def find_warunit(warunit_name):
+def find_warunit(warunit_name, warunit_type):
+    war_units = WarUnit.objects.filter(name__iexact=warunit_name,
+                                       warunit_type=warunit_type)
+    if war_units.count() > 0:
+        return war_units[0], True
+    
     war_units = WarUnit.objects.filter(name__iexact=warunit_name)
     if war_units.count() > 0:
-        return war_units[0]
-    else:
-        return None
+        return war_units[0], False
+    return None, None
 
 
-#def 
+def fill_warunit(name_warunit_dict):
+    prev_warunit = None
+    warunit = None
+    for u in range(5):
+        finded_unit, flag_type = find_warunit(name_warunit_dict[u], u)
+        if finded_unit is not None and flag_type is not None:
+            warunit = finded_unit
+        else:
+            if i == 0:
+                warunit = WarUnit.objects.create(above_war_unit=None, 
+                                       name = name_warunit_dict[u],
+                                       warunit_type=u)
+            else:
+                warunit = WarUnit.objects.create(above_war_unit=None, 
+                                       name = name_warunit_dict[u],
+                                       warunit_type=u)
+
+        prev_warunit = warunit
+    return warunit
 
 
 def fill_new_line(post_obj):
@@ -63,21 +96,34 @@ def fill_new_line(post_obj):
     born_district_name = post_obj.get("born_district_name")
     born_locality_name = post_obj.get("born_locality_name")
     born_address = [born_region_name, born_district_name, born_locality_name]
-    born_locality = fill_address(born_address)
+    born_locality = fill_address(born_address, False)
     live_region_name = post_obj.get("live_region_name")
     live_district_name = post_obj.get("live_district_name")
     live_locality_name = post_obj.get("live_locality_name")
     live_address = [live_region_name, live_district_name, live_locality_name]
-    live_locality = fill_address(live_address)
+    live_locality = fill_address(live_address, False)
 
     # mobilization
     data_mobilization = post_obj.get("date_mobilization")
     region_military_enlistment_office = post_obj.get('region_military_enlistment_office')
     district_military_enlistment_office = post_obj.get('district_military_enlistment_office')
+    military_enlistment_office_district = fill_address([region_military_enlistment_office,
+                                              district_military_enlistment_office,])
+    
     military_enlishment_name = post_obj.get('military_enlishment_name')
-    draft_team_name = post_obj.get("draft_team_name")
+
+    calling_team_name = post_obj.get("calling_team_name")
+
     direction_front_name = post_obj.get('direction_front_name')
     direction_army_name = post_obj.get('direction_army_name')
+    direction_warunit = post_obj.get('warunit_name')
+    direction_dict = {WarUnitType.FRONT: direction_front_name,
+                      WarUnitType.ARMY: direction_army_name,
+                      WarUnitType.DIVISION: None,
+                      WarUnitType.RGT: None,
+                      WarUnitType.COY: None,
+                      WarUnitType.UNIT: direction_warunit }
+    warunit = fill_warunit(direction_dict)
     calling_team = CallingTeam.objects.create(name = draft_team_name)
     front_name = post_obj.get("front_name")
     army_name = post_obj.get("army_name")

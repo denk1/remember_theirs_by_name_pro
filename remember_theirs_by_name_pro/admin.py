@@ -9,7 +9,6 @@ from remember_theirs_by_name_pro.models import Person, \
                                                WarUnit, \
                                                WarServe, \
                                                CallingTeamDirection, \
-                                               MilitaryEnlistmentOfficeCallingTeam, \
                                                Call, \
                                                Hospital, \
                                                Hospitalization, \
@@ -27,7 +26,6 @@ admin.site.register(Region)
 admin.site.register(WarUnit)
 admin.site.register(WarServe)
 admin.site.register(CallingTeamDirection)
-admin.site.register(MilitaryEnlistmentOfficeCallingTeam)
 admin.site.register(Call)
 admin.site.register(Hospital)
 admin.site.register(Hospitalization)

@@ -31,6 +31,7 @@ class WarUnit(models.Model):
     above_war_init = models.ForeignKey("WarUnit", null=True, on_delete=models.CASCADE)
     military_personnel = models.ManyToManyField("Person", through='WarServe')
     name = models.CharField(max_length=60)
+    warunit_type = models.IntegerField(null=True)
 
 
 class WarServe(models.Model):
@@ -50,7 +51,7 @@ class CallingTeam(models.Model):
 
 class CallingTeamDirection(models.Model):
     calling_team = models.ForeignKey(CallingTeam, on_delete=models.CASCADE)
-    war_unit_direction = models.ForeignKey("WarUnit", on_delete=models.CASCADE)
+    person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 
 class MilitaryEnlistmentOffice(models.Model):
@@ -70,6 +71,7 @@ class Mobilization(models.Model):
 class Call(models.Model):
     military_enlistment_office = models.ForeignKey(MilitaryEnlistmentOffice, on_delete=models.CASCADE)
     mobilization = models.ForeignKey(Mobilization, on_delete=models.CASCADE)
+    warunit = models.ForeignKey(WarUnit, on_delete=models.CASCADE)
 
 
 class Hospital(models.Model):
@@ -115,6 +117,7 @@ class Person(models.Model):
     birthday = models.DateField(null=True)
     born_locality = models.ForeignKey(Locality, related_name='born', on_delete=models.CASCADE)
     live_locality = models.ForeignKey(Locality, related_name='live', on_delete=models.CASCADE)
+    calling_teams = models.ManyToManyField(CallingTeam, through="CallingTeamDirection")
     call = models.ForeignKey(Call, on_delete=models.CASCADE)
     def __str__(self):
         return self.name + ' ' + self.surname + ' ' + self.father_name
