@@ -60,18 +60,18 @@ class MilitaryEnlistmentOffice(models.Model):
     """
     address = models.ForeignKey(District, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    mobilizations = models.ManyToManyField("Mobilization", through="Call")
+
 
 
 class Mobilization(models.Model):
     date_mobilization = models.DateField()
-    military_enlistment_officies = models.ManyToManyField("MilitaryEnlistmentOffice", through="Call")
 
 
 class Call(models.Model):
     military_enlistment_office = models.ForeignKey(MilitaryEnlistmentOffice, on_delete=models.CASCADE)
     mobilization = models.ForeignKey(Mobilization, on_delete=models.CASCADE)
     warunit = models.ForeignKey(WarUnit, on_delete=models.CASCADE)
+    last_msg_
 
 
 class Hospital(models.Model):

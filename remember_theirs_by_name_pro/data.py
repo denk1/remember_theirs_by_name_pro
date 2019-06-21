@@ -65,21 +65,23 @@ def find_warunit(warunit_name, warunit_type):
 def fill_warunit(name_warunit_dict):
     prev_warunit = None
     warunit = None
-    for u in range(5):
-        finded_unit, flag_type = find_warunit(name_warunit_dict[u], u)
-        if finded_unit is not None and flag_type is not None:
-            warunit = finded_unit
-        else:
-            if i == 0:
-                warunit = WarUnit.objects.create(above_war_unit=None, 
-                                       name = name_warunit_dict[u],
-                                       warunit_type=u)
+    i = 0
+    for u in name_warunit_dict.keys():
+        if name_warunit_dict[u] is not None:
+            finded_unit, flag_type = find_warunit(name_warunit_dict[u], u)
+            if finded_unit is not None and flag_type is not None:
+                warunit = finded_unit
             else:
-                warunit = WarUnit.objects.create(above_war_unit=None, 
+                if i == 0:
+                    warunit = WarUnit.objects.create(above_war_unit=None, 
                                        name = name_warunit_dict[u],
                                        warunit_type=u)
-
-        prev_warunit = warunit
+                else:
+                    warunit = WarUnit.objects.create(above_war_unit=None, 
+                                       name = name_warunit_dict[u],
+                                       warunit_type=u)
+            i = i + 1
+            prev_warunit = warunit
     return warunit
 
 
@@ -96,21 +98,26 @@ def fill_new_line(post_obj):
     born_district_name = post_obj.get("born_district_name")
     born_locality_name = post_obj.get("born_locality_name")
     born_address = [born_region_name, born_district_name, born_locality_name]
+    #born address
     born_locality = fill_address(born_address, False)
     live_region_name = post_obj.get("live_region_name")
     live_district_name = post_obj.get("live_district_name")
     live_locality_name = post_obj.get("live_locality_name")
     live_address = [live_region_name, live_district_name, live_locality_name]
+    #live address
     live_locality = fill_address(live_address, False)
 
     # mobilization
-    data_mobilization = post_obj.get("date_mobilization")
+    date_mobilization = post_obj.get("date_mobilization")
     region_military_enlistment_office = post_obj.get('region_military_enlistment_office')
     district_military_enlistment_office = post_obj.get('district_military_enlistment_office')
     military_enlistment_office_district = fill_address([region_military_enlistment_office,
                                               district_military_enlistment_office,])
     
-    military_enlishment_name = post_obj.get('military_enlishment_name')
+    military_enlistment_name = post_obj.get('military_enlistment')
+    military_enlistment_office = MilitaryEnlistmentOffice.objects.create(address=military_enlistment_office_district,
+                                                                         name=military_enlistment_office,
+                                                                          )
 
     calling_team_name = post_obj.get("calling_team_name")
 
@@ -124,42 +131,29 @@ def fill_new_line(post_obj):
                       WarUnitType.COY: None,
                       WarUnitType.UNIT: direction_warunit }
     warunit = fill_warunit(direction_dict)
-    calling_team = CallingTeam.objects.create(name = draft_team_name)
-    front_name = post_obj.get("front_name")
-    army_name = post_obj.get("army_name")
-    warunit_name = post_obj.get("warunit_name")
-    region_military_enlistment_office = post_obj.get("region_region_military_enlistment_office")
-    region_military_enlistment_office = Region.objects.create(region_name=region_military_enlistment_office)
-    district_military_enlistment_office = post_obj.get("district_military_enlistment_office")
-    district_military_enlistment_office = District.objects.create(region=region_military_enlistment_office, 
-                                                                  district_name=district_military_enlistment_office)
-    military_enlishment_name = post_obj.get("military_enlishment_name")
-    military_enlistment_office = MilitaryEnlistmentOffice.objects.create(address=district_military_enlistment_office, 
-                                                                         name=military_enlistment_office)
-    warunits = WarUnit.objects.filter(name__iexact=warunit_name)
-    warunit = None
-    if warunits.count() > 0:
-        warunit = warunits[0]
-    else:
-        WarUnit.objects.create(name=warunit_name, )
-        WarServe.objects.create()
-
-
-    moblization = Mobilization.objects.create(data_mobilization=data_mobilization,
-                                              military_enlistment_office=military_enlistment_office,
-                                              calling_team=calling_team)
+    calling_team = CallingTeam.objects.create(name = calling_team_name)
+    calling_team_direction = Call.objects.create()
+    mobilization = Mobilization.objects.create(date_mobilization=date_mobilization)
+    call = Call.objects.create(military_enlistment_office=military_enlistment_office,
+                               moblization=mobilization,
+                               warunit=warunit)
+    new_person = Person.objects.create(
+                          name=name, 
+                          name_distortion=name_distortion,
+                          surname=surname, 
+                          surname_distortion=surname_distortion,
+                          father_name=father_name_distortion,
+                          father_name_distortion=father_name_distortion,
+                          born_locality=born_locality,
+                          live_locality=live_locality,
+                          call=call)
     
-    new_person = Person.objects.create(surname = surname,
-                          surname_distortion = surname_distortion,
-                          name = name, 
-                          name_distortion = name_distortion,
-                          father_name = father_name_distortion,
-                          born_locality = born_locality,
-                          live_locality = live_locality)
+    last_msg_region = post_obj.get('last_msg_region')
+    last_msg_district = post_obj.get('last_msg_district')
+    last_msg_locality = post_obj.get('last_msg_locality')
     
-#    war_serve = WarServe(person = new_person,
-#                         war_unit = warunit,
-#                         period_from )
+    
+
 
     
      
