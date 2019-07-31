@@ -71,7 +71,7 @@ class Call(models.Model):
     military_enlistment_office = models.ForeignKey(MilitaryEnlistmentOffice, on_delete=models.CASCADE)
     mobilization = models.ForeignKey(Mobilization, on_delete=models.CASCADE)
     warunit = models.ForeignKey(WarUnit, on_delete=models.CASCADE)
-    last_msg_
+    last_msg_locality = models.ForeignKey(Locality, on_delete=models)
 
 
 class Hospital(models.Model):

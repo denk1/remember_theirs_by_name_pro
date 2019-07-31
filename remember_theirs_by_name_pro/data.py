@@ -124,19 +124,24 @@ def fill_new_line(post_obj):
     direction_front_name = post_obj.get('direction_front_name')
     direction_army_name = post_obj.get('direction_army_name')
     direction_warunit = post_obj.get('warunit_name')
+    last_msg_region = post_obj.get('last_msg_region')
+    last_msg_district = post_obj.get('last_msg_district')
+    last_msg_locality = post_obj.get('last_msg_locality')
+    last_msg_address = [last_msg_region, last_msg_district, last_msg_locality]
+    last_msg_locality = fill_address(last_msg_address)
     direction_dict = {WarUnitType.FRONT: direction_front_name,
                       WarUnitType.ARMY: direction_army_name,
                       WarUnitType.DIVISION: None,
                       WarUnitType.RGT: None,
                       WarUnitType.COY: None,
                       WarUnitType.UNIT: direction_warunit }
-    warunit = fill_warunit(direction_dict)
+    warunit_direction = fill_warunit(direction_dict)
     calling_team = CallingTeam.objects.create(name = calling_team_name)
-    calling_team_direction = Call.objects.create()
     mobilization = Mobilization.objects.create(date_mobilization=date_mobilization)
     call = Call.objects.create(military_enlistment_office=military_enlistment_office,
                                moblization=mobilization,
-                               warunit=warunit)
+                               warunit=warunit,
+                               last_msg_locality=last_msg_locality)
     new_person = Person.objects.create(
                           name=name, 
                           name_distortion=name_distortion,
@@ -147,10 +152,28 @@ def fill_new_line(post_obj):
                           born_locality=born_locality,
                           live_locality=live_locality,
                           call=call)
+    calling_team_direction = CallingTeamDirection.objects.create(calling_team=calling_team, person=new_person)
+    calling_team_direction.save()
+
+    fight_since_list = post_obj.getlist('fight_since[]')
+    fight_to_list = post_obj.getlist('fight_to[]')
+    army_name_list = post_obj.getlist('army_name[]')
+    division_name_list = post_obj.getlist('division_name[]')
+    regiment_name_list = post_obj.getlist('regiment_name[]')
+    company_name_list = post_obj.getlist('company_name[]')
+    platoon_name_list = post_obj.getlist('platoon_name[]')
+
+
+
+    fights_size = len(fight_since_list)
+    for i in range(fights_size):
+        pass
+        #WarArchievement.objects.create(war_operation=military_operation_name[i],
+        #                               )
+        
+
     
-    last_msg_region = post_obj.get('last_msg_region')
-    last_msg_district = post_obj.get('last_msg_district')
-    last_msg_locality = post_obj.get('last_msg_locality')
+
     
     
 
